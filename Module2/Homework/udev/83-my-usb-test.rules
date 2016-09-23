@@ -1,0 +1,6 @@
+# put it /etc/udev/rules.d/
+# The information was taken from
+# * udevadm info -a path -n /dev/sdb1 | l:wess
+# * udevadm monitor --property
+ACTION=="add", KERNEL=="sd?", ATTRS{idVendor}=="0951", ATTRS{idProduct}=="1642", ATTRS{serial}=="001CC0C60D72BBB0241F0123", RUN+="/home/mvictor/mDevice2.sh 1 %S %p %k "
+ACTION=="remove", ENV{ID_MODEL}=="DT_101_G2", ENV{DEVTYPE}=="disk", RUN+="/home/mvictor/mDevice2.sh 0 %S %p %k "
